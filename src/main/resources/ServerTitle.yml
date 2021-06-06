@@ -1,0 +1,23 @@
+#Server‘s title(motd).
+MaxPlayers: 20
+Enabled: "Default"
+Title:
+  Enabled: "Chinese"
+  List:
+    Default:
+      - "%prefix_my%Welcome to my %server%! \nThis is my test 1 next!"
+      - "%prefix_my%%server%'s tps: %tps%! \nThis is my test 2 next!"
+      - "%prefix_my%%server%'s say: Welcome to my %server%\nThis is my test 3 next!"
+      - "%prefix_my%start time: %starttime% \nThis is my test 4 next!"
+    Chinese:
+      - "&b”人生啊，不是只有你一个人在这。“\n“学习是人类具备的能力。”"
+      - "&b”你已经忘记了我，到我不会忘记你。“\n”你以为世界上没有人爱你，其实所有人都在爱你。“"
+      - "&b”车能跑遍路上所有的路，船能跑遍三大洋，飞机能跑满整个地球，而飞船，能跑便整个宇宙。“\n”“"
+Smode:
+  MaxPlayers: 0
+  Title: 
+    - "%prefix_my%Welcome to my %server%! \nThis is my test 1 next!"
+    - "%prefix_my%%server%'s tps: %tps%! \nThis is my test 2 next!"
+    - "%prefix_my%%server%'s say: Welcome to my %server%\nThis is my test 3 next!"
+    - "%prefix_my%start time: %starttime% \nThis is my test 4 next!"
+ReTitleLine: 1500

@@ -1,0 +1,85 @@
+name: Functions
+version: 2.2.0.2
+main: org.functions.Main.Functions
+author: 2b2ttianxiu,CCBlueXianYu(Check Language...),Dai_Mao,qiqi008
+description: Updater!
+commands:
+  msg:
+    description: Functions commmand of message player
+    aliases: [tell]
+  help:
+    description: Functions command of help player
+  functions:
+    description: Functions command of plugin command main
+    aliases: [function,fun]
+  report:
+    description: Functions command of report player!
+  ban:
+    description: Functions command of banned player!
+  gamemode:
+    description: Functions command of gamemode player!
+    aliases: [gm]
+  pardon:
+    description: Functions command of pardon player!
+    aliases: [unban]
+  fly:
+    description: Functions command of fly.
+  prefix:
+    description: Functions command of prefix.
+  suffix:
+    description: Functions command of prefix.
+  chat:
+    description: Functions command of chat.
+    aliases: [.chat]
+  tps:
+    description: Functions command of check tps.
+    aliases: [.tps,TickPerSecound]
+  ping:
+    description: Functions command of ping player ms.
+  warp:
+    description: Functions command of game weather.
+  group:
+    description: Functions command of group admin.
+  op:
+    description: Functions command of op.
+  deop:
+    description: Functions command of deop.
+  say:
+    description: Functions command of say.
+  kill:
+    description: Functions command of kill.
+  list:
+    description: Functions command of list player.
+  permission:
+    description: Functions command of permission.
+  seed:
+    description: Functions command of seed.
+  kick:
+    description: Functions command of kick player.
+  spawn:
+    description: Functions command of spawn world.
+  back:
+    description: Functions command of back to death.
+  playerinfo:
+    description: Functions command of list player info.
+  food:
+    description: Functions command of set player food.
+  home:
+    description: Functions command of give player set home.
+  setworldspawn:
+    description: Functions command of set world spawn give player spawn.
+  weather:
+    description: Functions command of minecraft command set weather.
+  helpop:
+    description: Functions command of help player play this is server.
+  destroyItem:
+    description: Functions command of give player clear player item gui.
+  difficulty:
+    description: Functions command of set game difficulty.
+  hat:
+    description: Functions command of set helmet.
+  plugins:
+    description: Functions command of list plugins.
+    aliases: [plugin,pl,.plugins,.pl,.plugin]
+  money:
+    description: Functions command of money admin.

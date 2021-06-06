@@ -1,0 +1,6 @@
+TabListPlayer: '%prefix%%player%%suffix% &e%ping%'
+TabList: true
+Header:
+- Day%worldday% %worldtime%
+Footer:
+- '%starttime%'

@@ -1,0 +1,1 @@
+package org.functions.API;import java.util.List;public interface Pay {    String getName();    String getMoney();    boolean isBank();    String getBankMoney();    boolean isBan();    boolean isMin();    boolean isMax();    void clone();    void copy();    List<Pay> getPays();    String getBy();    int hashCode();    boolean equals();}
