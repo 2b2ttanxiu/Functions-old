@@ -20,9 +20,9 @@ import org.functions.Main.Functions;
 import org.functions.Tools.ActionBar;
 import org.functions.Tools.Status;
 import org.functions.Tools.getPing;
-import org.functions.money.Money;
 import org.functions.net.minecraft.server.Handler;
 import org.functions.net.minecraft.server.NetMinecraftServer;
+import org.functions.money.Money;
 
 public class PlayerNMS {
     private long Long = System.currentTimeMillis();

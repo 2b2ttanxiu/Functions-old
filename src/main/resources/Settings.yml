@@ -6,6 +6,8 @@ Date-Time:
   Time: "HH:mm:ss"
   DayTime: "mm:ss"
   Start: "%yyyy%-%mm%-%dd% %h%:%m%:%s%"
+MoneyFormat-matches: "[0-9]*.[0-9]*"
+MoneyFormat: "#.####"
 OP-Group: true
 OP-setGroup: OP
 Join:

@@ -7,7 +7,6 @@ import org.functions.API.PlayerNMS;
 import org.functions.API.WorldTime;
 import org.functions.Main.Functions;
 import org.functions.net.minecraft.server.Handler;
-import org.functions.scoreboard.ScoreBoard;
 
 public class TabList implements Runnable {
     private Functions a = Functions.getMain();

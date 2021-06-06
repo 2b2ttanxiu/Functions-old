@@ -1,0 +1,100 @@
+AFK:
+  interval: 160
+Date-Time:
+  Date: "yyyy-MM-dd"
+  #Time format.
+  Time: "HH:mm:ss"
+  DayTime: "mm:ss"
+  Start: "%yyyy%-%mm%-%dd% %h%:%m%:%s%"
+OP-Group: true
+OP-setGroup: OP
+Join:
+  GameMode: 0
+  forceGameMode: false
+  Group: Default
+  Type:
+    #Private Group World Public
+    Chat: Public
+Maintenance: true
+BannedReason: "%date% %time% %from%"
+WhiteName:
+  List: []
+  Enable: false
+Banned:
+  Black:
+    Enable: true
+Command:
+  White:
+    List: []
+    Enable: false
+  Black:
+    Enable: true
+    List:
+      - bukkit:help
+      - bukkit:pl
+      - bukkit:plugins
+      - pl
+      - plugins
+Kick:
+  Message: The server's kick you
+AnimationsEnable:
+  - Default
+  - Board
+Animations:
+  Board:
+    ChangeLine: 1000
+    Texts:
+      - "W"
+      - "We"
+      - "Wel"
+      - "Welc"
+      - "Welco"
+      - "Welcom"
+      - "Welcome"
+      - "Welcom"
+      - "Welco"
+      - "Welc"
+      - "Wel"
+      - "We"
+      - "W"
+  Default:
+    ChangeLine: 1000
+    Texts:
+      - "  %prefix%%player%%suffix% %ping%"
+      - "W %prefix%%player%%suffix% %ping%"
+      - "W_ %prefix%%player%%suffix% %ping%"
+      - "We %prefix%%player%%suffix% %ping%"
+      - "We_ %prefix%%player%%suffix% %ping%"
+      - "Wel %prefix%%player%%suffix% %ping%"
+      - "Wel_ %prefix%%player%%suffix% %ping%"
+      - "Welc %prefix%%player%%suffix% %ping%"
+      - "Welc_ %prefix%%player%%suffix% %ping%"
+      - "Welco %prefix%%player%%suffix% %ping%"
+      - "Welco_ %prefix%%player%%suffix% %ping%"
+      - "Welcom %prefix%%player%%suffix% %ping%"
+      - "Welcom_ %prefix%%player%%suffix% %ping%"
+      - "Welcome %prefix%%player%%suffix% %ping%"
+ActionBar: "%animation:Default% %cps% | %status%"
+
+List:
+  Location: "%world%,%x%,%y%,%z%"
+  Warp: "%warp% (Count:%count%,Location:%location%), "
+  RAM: "%usize% / %max%MB (%size%%)"
+  Chunk: "%usechunk% / %chunk%"
+  Status: "%mineblock% / %placeblock%"
+  ListSystem: "%name% (%version% %arch%) %JavaVersion%"
+  CPS: "%count% / %max%"
+  Plugins: "%plugin%(%count%) "
+resetBack: true
+GameRule:
+  MobGriefing:
+    CREEPER: true
+    ENDER_DRAGON: true
+    FIREBALL: true
+    SMALL_FIREBALL: true
+    WITHER: true
+    WITHER_SKULL: true
+    MINECART_TNT: true
+    PRIMED_TNT: true
+  KeepInventory:
+    Inventory: true

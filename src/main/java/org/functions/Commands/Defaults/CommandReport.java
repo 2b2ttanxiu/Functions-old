@@ -35,7 +35,7 @@ public class CommandReport implements CommandExecutor {
                         path = path + args[2] + ".";
                         this.p.getReport().set(path + args[0], true);
                         this.p.SaveConfig();
-                        sender.sendMessage(this.p.String(1, "Report-Type", "Thank you report,%target% of report,type %type-report%.").replace("%player%", sender.getName()).replace("%target%", args[0]).replace("%type=report%", args[2]));
+                        sender.sendMessage(this.p.String(1, "Report-Type", "Thank you report,%target% of report,type %type-report%.").replace("%player%", sender.getName()).replace("%target%", args[0]).replace("%type-report%", args[2]));
                         return true;
                     }
 

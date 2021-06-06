@@ -7,7 +7,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.server.ServerListPingEvent;
 import org.bukkit.util.CachedServerIcon;
 import org.functions.Main.Functions;
-import org.functions.Tools.TPS;
 
 public class TitleListener implements Listener {
     private Functions a = Functions.getMain();

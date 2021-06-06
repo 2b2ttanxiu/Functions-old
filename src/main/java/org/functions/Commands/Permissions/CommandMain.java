@@ -1,9 +1,6 @@
 package org.functions.Commands.Permissions;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -40,7 +37,17 @@ public class CommandMain implements TabExecutor {
                 }
                 return true;
             }
-
+            if (args[0].equalsIgnoreCase("update-Configuration")) {
+                File dir = p.getDataFolder();
+                File dir_old = p.getDataFolder() + "-old";
+                //if (dir_old.exists()) {
+                 //   dir_old.
+                //}
+                //dir.renameTo(p.getDataFolder()+"-old")
+                p.initconfig();
+                sender.sendMessage(p.String(1,"Updater-Configuration","Delete and updater configuration"));
+                return true;
+            }
             if (args[0].equalsIgnoreCase("Update-Language")) {
                 File file = new File(this.p.getDataFolder(), "Language-" + this.p.getConfig().getString("Language") + ".yml");
                 File files = new File(this.p.getDataFolder(), "Language-" + this.p.getConfig().getString("Language") + ".old.yml");

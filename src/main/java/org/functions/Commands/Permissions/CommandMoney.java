@@ -2,7 +2,6 @@ package org.functions.Commands.Permissions;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.TabCompleter;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -24,8 +23,8 @@ public class CommandMoney implements TabExecutor {
             if (sender instanceof Player) {
                 UUID id = nms.getPlayer(false, args[0]).getUniqueId();
                 String me = sender.getName();
-                String regex = "[0-9]*";
                 Money m = nms.money(id);
+                String regex = m.format();
                 if ("give".equalsIgnoreCase(args[1]) || "add".equalsIgnoreCase(args[1])) {
                     if (!nms.nms.hasPermission(me, "functions.command.money.*")) {
                         if (!nms.nms.hasPermission(me, "functions.command.money.give") || nms.nms.hasPermission(me,"functions.command.money.add")) {
@@ -90,7 +89,7 @@ public class CommandMoney implements TabExecutor {
                     }
                     long d = Long.parseLong(args[2]);
                     UUID uuid1 = nms.getPlayer(sender).getUniqueId();
-                    if (!nms.money(uuid1).IfPlayMoney(d)) {
+                    if (!nms.money(uuid1).IfPayMoney(d)) {
                         sender.sendMessage(nms.nms.String(1, "IfPayMoney", "You don't pay money to %target% user, you user no many money").replace("%player%", me).replace("%target%", args[0]).replace("%make_money%", d + "").replace("%money%", m.getMoney() + ""));
                         return true;
                     }
@@ -120,8 +119,8 @@ public class CommandMoney implements TabExecutor {
             } else {
                 UUID id = nms.getPlayer(false,args[0]).getUniqueId();
                 String me = sender.getName();
-                String regex = "[0-9]*";
                 Money m = nms.money(id);
+                String regex = m.format();
                 if ("give".equalsIgnoreCase(args[1]) || "add".equalsIgnoreCase(args[1])) {
                     if (!args[2].matches(regex)) {
                         sender.sendMessage(nms.nms.String(1,"matchesMaths","&cYou number has text, matches: {0}").replace("%player%",me).replace("%target%",args[0]).replace("{0}",regex));

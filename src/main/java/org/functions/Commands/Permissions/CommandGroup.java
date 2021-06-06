@@ -1,6 +1,5 @@
 package org.functions.Commands.Permissions;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.bukkit.command.Command;

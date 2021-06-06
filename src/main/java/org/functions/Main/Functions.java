@@ -14,8 +14,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.CachedServerIcon;
 import org.functions.API.FunctionsAPI;
 import org.functions.API.PlayerManger;
-import org.functions.API.PlayerNMS;
 import org.functions.Tools.*;
+import org.functions.API.PlayerNMS;
 import org.functions.net.minecraft.server.ServerJar;
 
 public class Functions extends JavaPlugin {

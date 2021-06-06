@@ -1,6 +1,7 @@
 package org.functions.Tools;
 
 import java.util.List;
+
 import org.functions.Main.Functions;
 
 public class ServerTitleRandomText implements Runnable {

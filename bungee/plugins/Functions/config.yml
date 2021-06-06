@@ -1,0 +1,16 @@
+PluginPrefix: '§3[§bFunctions§3] '
+ServerName: Unknown Server
+Language: en
+Updated:
+  DownloadEnable: true
+  CheckTime_minutes: 1
+  CheckEnable: true
+List:
+  Group:
+  - Default
+  - VIP
+  - OP
+ServerIcon:
+- server-icon.png
+- serviceModeIcon.png
+StartServerTime: 1623461134493

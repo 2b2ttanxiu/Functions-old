@@ -1,0 +1,39 @@
+Updater-Configuration: Delete and updater configuration
+OnlyPlayer: You don't player,This is command only player.
+matchesMaths: '&cYou number has text, matches: {0}'
+GiveMoney: You give money to %target% %make_money%,Now %target% has %money%
+InfoTPS: 'TPS from last 1m, 5m, 15m: %spigot_tps%, Server Name:%servername%,RAM: %ram%
+  %system%'
+Kick: Kicked %target%
+AnvilGui: Anvil Gui
+CreativeGui: Creative Gui
+EnchantingGui: Enchanting Gui
+Maintenance_ing: Server of Maintenance ing...
+DelayChat: Please wait %delay%s!
+Weather-Thunder: The weather change thunder
+Weather-Clear: The weather change clear
+SetFood: '%target%''s food is a max'
+GameMode-Creative: '%target%‘s game mode has been updated to creative mode.'
+Maintenance: Maintenance of %boolean%
+DeleteAdministrator: Remove %target% server administrator
+Administrator-Null: §cServer administrator of null!,Pleases use /functions op <player>
+  add server administrator.
+AdministratorList: 'List op: %list%'
+Administrator-TargetIf: §c%target% if server administrator!
+NotPermission: '&cbut you do not have permissions.'
+Information-false: Your have no new information to check
+Type-Chat: You Chat Channel is a %type% channel
+Usage-op: /op <player>
+GiveAdministrator: Give %target% server administrator
+setGroup: '%target% set %group%'
+DisabledPlugin: 'The plugin is off(disabled): {0}'
+EnabledPlugin: 'The plugin is on(enabled): {0}'
+InfoPlugin: |-
+  The plugin name: %name%
+  The plugin version: %version%
+  The plugin author: %author%
+  The plugin description: %description%
+  The plugin main: %main%
+  The plugin is enabled: %enabled%
+ListPlugins: 'Plugins (%count%): %plugins%'
+Functions-Reload: §aReloaded successfully in %time-ms%

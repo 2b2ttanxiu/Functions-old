@@ -5,6 +5,6 @@ public class ViaVersion {
     }
 
     public String toString() {
-        return "1.17.0";
+        return "1.17.2";
     }
 }

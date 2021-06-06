@@ -22,7 +22,7 @@ public class CommandKick implements CommandExecutor {
 
             if (args.length == 1) {
                 if (!this.a.getDisplayNameOnline(args[0])) {
-                    sender.sendMessage(this.a.String(1, "Message-TargetOffline", "§cTarget is offline,you not send message to target").replace("%player%", sender.getName()).replace("%target%", args[0]));
+                    sender.sendMessage(this.a.String(1, "TargetOffline", "%target% if offline.").replace("%target%", args[1]).replace("%player%", sender.getName()));
                     return true;
                 }
 
@@ -48,7 +48,7 @@ public class CommandKick implements CommandExecutor {
                 }
 
                 if (!this.a.getDisplayNameOnline(args[0])) {
-                    sender.sendMessage(this.a.String(1, "Message-TargetOffline", "§cTarget is offline,you not send message to target").replace("%player%", sender.getName()).replace("%target%", args[0]));
+                    sender.sendMessage(this.a.String(1, "TargetOffline", "%target% if offline.").replace("%target%", args[1]).replace("%player%", sender.getName()));
                     return true;
                 }
 

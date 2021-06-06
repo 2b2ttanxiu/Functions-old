@@ -28,18 +28,18 @@ public class CommandPay implements TabExecutor {
                 sender.sendMessage(nms.nms.String(1, "Message-TargetOffline", "§cTarget is offline,you not send message to target").replace("%player%", sender.getName()).replace("%target%", args[0]));
                 return true;
             }
-            String regex = "[0-9]*";
             Player target = nms.getPlayer(false,args[0]);
             Player me = nms.getPlayer(sender);
             UUID id = me.getUniqueId();
             UUID uuid1 = target.getUniqueId();
             Money m = nms.money(id);
+            String regex = m.format();
             if (!args[1].matches(regex)) {
                 sender.sendMessage(nms.nms.String(1, "matchesMaths", "&cYou number has text, matches: {0}").replace("%player%", me.getName()).replace("%target%", args[0]).replace("{0}", regex));
                 return true;
             }
             long d = Long.parseLong(args[1]);
-            if (!nms.money(uuid1).IfPlayMoney(d)) {
+            if (!nms.money(uuid1).IfPayMoney(d)) {
                 sender.sendMessage(nms.nms.String(1, "IfPayMoney", "You don't pay money to %target% user, you user no many money").replace("%player%", me.getName()).replace("%target%", args[0]).replace("%make_money%", d + "").replace("%money%", m.getMoney() + ""));
                 return true;
             }

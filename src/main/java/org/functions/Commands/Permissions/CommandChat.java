@@ -25,28 +25,28 @@ public class CommandChat implements TabExecutor {
 
                 if (args[0].equalsIgnoreCase("channel")) {
                     if (this.p.getData().getString(sender.getName() + ".Type.Chat").equals("Public")) {
-                        sender.sendMessage(this.p.String(1, "TypeChannel-World", "Your channel change %type%!").replace("%type%", "World").replace("%player%", sender.getName()));
+                        sender.sendMessage(this.p.String(1, "TypeChannel", "Your channel change %type%!").replace("%type%", "World").replace("%player%", sender.getName()));
                         this.p.getData().set(sender.getName() + ".Type.Chat", "World");
                         this.p.SaveConfig();
                         return true;
                     }
 
                     if (this.p.getData().getString(sender.getName() + ".Type.Chat").equals("World")) {
-                        sender.sendMessage(this.p.String(1, "TypeChannel-Group", "Your channel change %type%!").replace("%type%", "Group").replace("%player%", sender.getName()));
+                        sender.sendMessage(this.p.String(1, "TypeChannel", "Your channel change %type%!").replace("%type%", "Group").replace("%player%", sender.getName()));
                         this.p.getData().set(sender.getName() + ".Type.Chat", "Group");
                         this.p.SaveConfig();
                         return true;
                     }
 
                     if (this.p.getData().getString(sender.getName() + ".Type.Chat").equals("Group")) {
-                        sender.sendMessage(this.p.String(1, "TypeChannel-Private", "Your channel change %type%!").replace("%type%", "Private").replace("%player%", sender.getName()));
+                        sender.sendMessage(this.p.String(1, "TypeChannel", "Your channel change %type%!").replace("%type%", "Private").replace("%player%", sender.getName()));
                         this.p.getData().set(sender.getName() + ".Type.Chat", "Private");
                         this.p.SaveConfig();
                         return true;
                     }
 
                     if (this.p.getData().getString(sender.getName() + ".Type.Chat").equals("Private")) {
-                        sender.sendMessage(this.p.String(1, "TypeChannel-Public", "Your channel change %type%!").replace("%type%", "Public").replace("%player%", sender.getName()));
+                        sender.sendMessage(this.p.String(1, "TypeChannel", "Your channel change %type%!").replace("%type%", "Public").replace("%player%", sender.getName()));
                         this.p.getData().set(sender.getName() + ".Type.Chat", "Public");
                         this.p.SaveConfig();
                         return true;
@@ -82,28 +82,28 @@ public class CommandChat implements TabExecutor {
 
                 if (args[0].equalsIgnoreCase("channel")) {
                     if (this.p.getData().getString(sender.getName() + ".Type.Chat").equals("Public")) {
-                        sender.sendMessage(this.p.String(1, "TypeChannel-World", "Your channel change %type%!").replace("%type%", "World").replace("%player%", sender.getName()));
+                        sender.sendMessage(this.p.String(1, "TypeChannel", "Your channel change %type%!").replace("%type%", "World").replace("%player%", sender.getName()));
                         this.p.getData().set(sender.getName() + ".Type.Chat", "World");
                         this.p.SaveConfig();
                         return true;
                     }
 
                     if (this.p.getData().getString(sender.getName() + ".Type.Chat").equals("World")) {
-                        sender.sendMessage(this.p.String(1, "TypeChannel-Group", "Your channel change %type%!").replace("%type%", "Group").replace("%player%", sender.getName()));
+                        sender.sendMessage(this.p.String(1, "TypeChannel", "Your channel change %type%!").replace("%type%", "Group").replace("%player%", sender.getName()));
                         this.p.getData().set(sender.getName() + ".Type.Chat", "Group");
                         this.p.SaveConfig();
                         return true;
                     }
 
                     if (this.p.getData().getString(sender.getName() + ".Type.Chat").equals("Group")) {
-                        sender.sendMessage(this.p.String(1, "TypeChannel-Private", "Your channel change %type%!").replace("%type%", "Private").replace("%player%", sender.getName()));
+                        sender.sendMessage(this.p.String(1, "TypeChannel", "Your channel change %type%!").replace("%type%", "Private").replace("%player%", sender.getName()));
                         this.p.getData().set(sender.getName() + ".Type.Chat", "Private");
                         this.p.SaveConfig();
                         return true;
                     }
 
                     if (this.p.getData().getString(sender.getName() + ".Type.Chat").equals("Private")) {
-                        sender.sendMessage(this.p.String(1, "TypeChannel-Public", "Your channel change %type%!").replace("%type%", "Public").replace("%player%", sender.getName()));
+                        sender.sendMessage(this.p.String(1, "TypeChannel", "Your channel change %type%!").replace("%type%", "Public").replace("%player%", sender.getName()));
                         this.p.getData().set(sender.getName() + ".Type.Chat", "Public");
                         this.p.SaveConfig();
                         return true;

@@ -24,6 +24,8 @@ Default:
     - functions.command.warp.others
     - functions.command.spawn.other
     - functions.command.list.others
+    - functions.command.prefix.use
+    - functions.command.suffix.use
     - functions.command.destroyitem.others
     - functions.command.pay
   ScoreBoardEnabled: true
@@ -91,6 +93,8 @@ VIP:
     - functions.command.spawn.other
     - functions.command.list.others
     - functions.command.pay
+    - functions.command.prefix.use
+    - functions.command.suffix.use
     - functions.command.destroyitem.others
   ScoreBoardEnabled: true
   ScoreBoardDisplayName: "%animation:Board%"
@@ -142,8 +146,8 @@ OP:
     - functions.command.pardon.others
     - functions.command.group.others
     - functions.command.chat.others
-    - functions.command.prefix.others
-    - functions.command.suffix.others
+    - functions.command.prefix.*
+    - functions.command.suffix.*
     - functions.command.fly.other
     - functions.command.fly.target
     - functions.command.gamemode.other

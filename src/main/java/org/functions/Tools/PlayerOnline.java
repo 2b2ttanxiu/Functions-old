@@ -3,6 +3,7 @@ package org.functions.Tools;
 import java.util.Iterator;
 import org.bukkit.entity.Player;
 import org.functions.Main.Functions;
+import org.functions.money.Money;
 
 public class PlayerOnline implements Runnable {
     private Functions a = Functions.getMain();
@@ -42,6 +43,8 @@ public class PlayerOnline implements Runnable {
                     }
                 }
             }
+            Money m = new Money(p.getUniqueId());
+            m.checkMoney();
             CheckData data = new CheckData(p);
             data.run();
             if (this.a.getBanned().getString("Banned." + p.getName()) != null) {

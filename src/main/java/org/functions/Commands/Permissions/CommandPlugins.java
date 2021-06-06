@@ -6,15 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.SimpleCommandMap;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.plugin.InvalidDescriptionException;
 import org.bukkit.plugin.InvalidPluginException;
 import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.SimplePluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.functions.API.PlayerManger;
 import org.functions.API.PlayerNMS;
@@ -173,8 +170,6 @@ public class CommandPlugins implements TabExecutor {
             s.add("enabled");
             s.add("main");
             s.add("all");
-            s.add("on");
-            s.add("off");
             return s;
         } else {
             Plugin[] var6 = this.nms.getServer().getPluginManager().getPlugins();

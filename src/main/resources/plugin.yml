@@ -1,8 +1,8 @@
 name: Functions
-version: 2.2.0.2
+version: 2.2.0.5
 main: org.functions.Main.Functions
 author: 2b2ttianxiu,CCBlueXianYu(Check Language...),Dai_Mao,qiqi008
-description: Updater!
+description: Really teleport command.
 commands:
   msg:
     description: Functions commmand of message player
@@ -83,3 +83,5 @@ commands:
     aliases: [plugin,pl,.plugins,.pl,.plugin]
   money:
     description: Functions command of money admin.
+  pay:
+    description: Functions command of pay to player.

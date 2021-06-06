@@ -25,7 +25,7 @@ public class CommandDeop implements TabExecutor {
             List<String> ls = p.getOP().getStringList("Administrators");;
             if (args.length != 0) {
                 if (ls.size() == 0) {
-                    sender.sendMessage(this.p.String(1, "Administrator-Null", "§cServer administrator of null!,Pleases use /functions op <player> add server administrator.").replace("%player%", sender.getName()));
+                    sender.sendMessage(this.p.String(1, "Administrator-Null", "§cServer administrator of null!,Pleases use /op <player> add server administrator.").replace("%player%", sender.getName()));
                     return true;
                 } else {
                     boolean is = false;

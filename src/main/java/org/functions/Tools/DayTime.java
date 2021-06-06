@@ -13,21 +13,21 @@ public class DayTime {
         midnight,
         Time;
     }
-    public DayTime(World World, org.functions.Tools.DayTime.Type Type) {
+    public DayTime(World World, DayTime.Type Type) {
         this.type = Type;
         this.world = World;
     }
 
     public long getTime() {
-        if (this.type == org.functions.Tools.DayTime.Type.Day) {
+        if (this.type == DayTime.Type.Day) {
             return this.world.getFullTime() / 24000L;
         } else {
-            return this.type == org.functions.Tools.DayTime.Type.Time ? this.world.getTime() / 20L * 1200L : 0L;
+            return this.type == DayTime.Type.Time ? this.world.getTime() / 20L * 1200L : 0L;
         }
     }
 
     public void setTime() {
-        if (this.type == org.functions.Tools.DayTime.Type.dawn) {
+        if (this.type == DayTime.Type.dawn) {
             if (this.getTime() < 1L) {
                 this.world.setTime(this.getTime());
             } else {
@@ -35,7 +35,7 @@ public class DayTime {
             }
         }
 
-        if (this.type == org.functions.Tools.DayTime.Type.noon) {
+        if (this.type == DayTime.Type.noon) {
             if (8L <= this.getTime()) {
                 this.world.setTime(this.world.getFullTime() + 1L + 1200L);
             }
@@ -47,7 +47,7 @@ public class DayTime {
             }
         }
 
-        if (this.type == org.functions.Tools.DayTime.Type.dusk) {
+        if (this.type == DayTime.Type.dusk) {
             if (8L <= this.getTime()) {
                 this.world.setTime(this.world.getFullTime() + 1L);
             }

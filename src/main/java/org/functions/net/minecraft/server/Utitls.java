@@ -255,7 +255,7 @@ public class Utitls {
 	public static Object invokeMethod(Object obj, String name, boolean declared, boolean superClass) throws Exception {
 		Class<?> c = superClass ? obj.getClass().getSuperclass() : obj.getClass();
 		Method met = declared ? c.getDeclaredMethod(name) : c.getMethod(name);
-		if (!org.functions.net.minecraft.server.Utitls.JavaAccessibilities.isAccessible(met, obj)) {
+		if (!Utitls.JavaAccessibilities.isAccessible(met, obj)) {
 			met.setAccessible(true);
 		}
 
@@ -284,7 +284,7 @@ public class Utitls {
 
 	public static Field getField(Class<?> clazz, String name, boolean declared) throws Exception {
 		Field field = declared ? clazz.getDeclaredField(name) : clazz.getField(name);
-		if (!org.functions.net.minecraft.server.Utitls.JavaAccessibilities.isAccessible(field, (Object)null)) {
+		if (!Utitls.JavaAccessibilities.isAccessible(field, (Object)null)) {
 			field.setAccessible(true);
 		}
 
@@ -297,12 +297,12 @@ public class Utitls {
 		try {
 			modifiersField = Field.class.getDeclaredField("modifiers");
 		} catch (NoSuchFieldException var12) {
-			if (org.functions.net.minecraft.server.Utitls.JavaAccessibilities.getCurrentVersion() < 12) {
+			if (Utitls.JavaAccessibilities.getCurrentVersion() < 12) {
 				return;
 			}
 
 			Method meth = Class.class.getDeclaredMethod("getDeclaredFields0", Boolean.TYPE);
-			boolean accessibleBeforeSet = org.functions.net.minecraft.server.Utitls.JavaAccessibilities.isAccessible(meth, (Object)null);
+			boolean accessibleBeforeSet = Utitls.JavaAccessibilities.isAccessible(meth, (Object)null);
 			meth.setAccessible(true);
 			Field[] fields = (Field[])meth.invoke(Field.class, false);
 			Field[] var8 = fields;
@@ -321,12 +321,12 @@ public class Utitls {
 
 		if (modifiersField != null) {
 			field.setAccessible(true);
-			if (org.functions.net.minecraft.server.Utitls.JavaAccessibilities.getCurrentVersion() < 13) {
+			if (Utitls.JavaAccessibilities.getCurrentVersion() < 13) {
 				modifiersField.setAccessible(true);
 				modifiersField.setInt(field, field.getModifiers() & -17);
 				field.set(target, newValue);
 			} else {
-				boolean accessibleBeforeSet = org.functions.net.minecraft.server.Utitls.JavaAccessibilities.isAccessible(modifiersField, (Object)null);
+				boolean accessibleBeforeSet = Utitls.JavaAccessibilities.isAccessible(modifiersField, (Object)null);
 				modifiersField.setAccessible(true);
 				modifiersField.setInt(field, field.getModifiers() & -17);
 				field.set(target, newValue);

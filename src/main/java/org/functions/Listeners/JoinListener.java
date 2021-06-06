@@ -6,7 +6,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.functions.Main.Functions;
 import org.functions.Tools.GameModeAPI;
-import org.functions.Tools.TPS;
 
 public class JoinListener implements Listener {
     private Functions a = Functions.getMain();
