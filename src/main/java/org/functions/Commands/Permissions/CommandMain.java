@@ -39,7 +39,6 @@ public class CommandMain implements TabExecutor {
             }
             if (args[0].equalsIgnoreCase("update-Configuration")) {
                 File dir = p.getDataFolder();
-                File dir_old = p.getDataFolder() + "-old";
                 //if (dir_old.exists()) {
                  //   dir_old.
                 //}
