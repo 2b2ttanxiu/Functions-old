@@ -77,7 +77,6 @@ Animations:
       - "Welcom_ %prefix%%player%%suffix% %ping%"
       - "Welcome %prefix%%player%%suffix% %ping%"
 ActionBar: "%animation:Default% %cps% | %status%"
-
 List:
   Location: "%world%,%x%,%y%,%z%"
   Warp: "%warp% (Count:%count%,Location:%location%), "
