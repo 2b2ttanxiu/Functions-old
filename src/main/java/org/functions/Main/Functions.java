@@ -3,7 +3,6 @@ package org.functions.Main;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -102,7 +101,7 @@ public class Functions extends JavaPlugin {
         temp = new File(getDataFolder(), "Temp.yml");
         tab = new File(getDataFolder(), "Tab.yml");
         automessage = new File(getDataFolder(), "PlayerStatus.yml");
-        away = new File(getDataFolder(), "AwayFastBoard.yml");
+        away = new File(getDataFolder(), "AwayFromKeyBoard.yml");
         if (!s.exists()) {
             var1 = getConfig().getStringList("ServerIcon").iterator();
 
@@ -169,7 +168,7 @@ public class Functions extends JavaPlugin {
        temp = new File(getDataFolder(), "Temp.yml");
        tab = new File(getDataFolder(), "Tab.yml");
        automessage = new File(getDataFolder(), "PlayerStatus.yml");
-       away = new File(getDataFolder(), "AwayFastBoard.yml");
+       away = new File(getDataFolder(), "AwayFromKeyBoard.yml");
         if (!s.exists()) {
             var1 = getConfig().getStringList("ServerIcon").iterator();
 
@@ -255,7 +254,7 @@ public class Functions extends JavaPlugin {
             saveResource("PlayerStatus.yml", false);
         }
         if (!away.exists()) {
-            saveResource("AwayFastBoard.yml",false);
+            saveResource("AwayFromKeyBoard.yml",false);
         }
         Tab = new YamlConfiguration();
         Report = new YamlConfiguration();
@@ -354,7 +353,7 @@ public class Functions extends JavaPlugin {
             getLatest().save(new File(getDataFolder(), "Latest.yml"));
             getBanned().save(new File(getDataFolder(), "Banned.yml"));
             getBack().save(new File(getDataFolder(), "Backs.yml"));
-            getAway().save(new File(getDataFolder(), "AwayFastBoard.yml"));
+            getAway().save(new File(getDataFolder(), "AwayFromKeyBoard.yml"));
         } catch (IOException var2) {
         }
 
@@ -494,6 +493,7 @@ public class Functions extends JavaPlugin {
             String x = (String)var3.next();
             Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Animations(x), 20L, (long)(getSettings().getInt("Animations." + x + ".ChangeLine") / 1000 * 20));
         }
+        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this,new AwayRunnable(),20,20);
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new OnScoreBoard(), 20L, 20L);
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new TabCheck(), 20L, 20L);
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new TPS(), 100L, 1L);

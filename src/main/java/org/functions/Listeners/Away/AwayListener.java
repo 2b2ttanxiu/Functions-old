@@ -9,27 +9,23 @@ import org.functions.API.PlayerNMS;
 public class AwayListener implements Listener {
     PlayerNMS nms = new PlayerNMS();
     @EventHandler
-    public void Death(PlayerDeathEvent b) {
-        nms.getaway(b.getEntity().getUniqueId()).cancel();
-    }
-    @EventHandler
-    public void leave(PlayerQuitEvent b) {
+    public void join(PlayerQuitEvent b) {
+        nms.getaway(b.getPlayer().getUniqueId()).resetTime();
         nms.getaway(b.getPlayer().getUniqueId()).cancel();
     }
     @EventHandler
     public void click(PlayerInteractEvent b) {
-        nms.getaway(b.getPlayer().getUniqueId()).cancel();
-    }
-    @EventHandler
-    public void teleport(PlayerTeleportEvent b) {
+        nms.getaway(b.getPlayer().getUniqueId()).resetTime();
         nms.getaway(b.getPlayer().getUniqueId()).cancel();
     }
     @EventHandler
     public void chat(AsyncPlayerChatEvent b) {
+        nms.getaway(b.getPlayer().getUniqueId()).resetTime();
         nms.getaway(b.getPlayer().getUniqueId()).cancel();
     }
     @EventHandler
     public void drops(PlayerDropItemEvent b) {
+        nms.getaway(b.getPlayer().getUniqueId()).resetTime();
         nms.getaway(b.getPlayer().getUniqueId()).cancel();
     }
 }

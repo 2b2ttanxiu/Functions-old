@@ -1,5 +1,10 @@
-AFK:
-  interval: 160
+AwayFromKeyBoard:
+  StartCount: 60
+  TimeoutKick: 300
+  Texts:
+    - "60: You join keyboard away."
+    - "295: I'll kick you the game in."
+  KickMessage: "I kick keyboard away."
 Date-Time:
   Date: "yyyy-MM-dd"
   #Time format.
