@@ -21,7 +21,7 @@ public class TabCheck implements Runnable {
             String PlayerHealth = (int)p.getHealth() + "";
             String PlayerLevel = p.getLevel() + 1 + "";
             String ListPlayer = this.a.getTab().getString("TabListPlayer").replace("&", "§").replace("%player%", DisplayName).replace("%suffix%", PlayerSuffix).replace("%prefix%", PlayerPrefix).replace("%level%", PlayerLevel).replace("%health%", PlayerHealth).replace("%ping%", PlayerPing);
-            //p.setPlayerListName(ListPlayer);
+            p.setPlayerListName(ListPlayer);
             //p.setDisplayName(ListPlayer);
             //p.setCustomName(ListPlayer);
             //p.setCustomNameVisible(true);
