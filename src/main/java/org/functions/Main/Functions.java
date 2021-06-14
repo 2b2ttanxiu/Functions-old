@@ -76,6 +76,73 @@ public class Functions extends JavaPlugin {
             e.printStackTrace();
         }
     }
+    public void reloadConfiguration() {
+        Iterator var1;
+        String x;
+        for(var1 = getConfig().getStringList("ServerIcon").iterator(); var1.hasNext(); s = new File(getDataFolder(), x)) {
+            x = (String)var1.next();
+        }
+
+        report = new File(getDataFolder(), "Report.yml");
+        language = new File(getDataFolder(), "Language-" + getConfig().getString("Language") + ".yml");
+        user = new File(getDataFolder(), "Users.yml");
+        data = new File(getDataFolder(), "Data.yml");
+        datamoney = new File(getDataFolder(), "DataMoneys.yml");
+        permission = new File(getDataFolder(), "Permissions.yml");
+        warp = new File(getDataFolder(), "Warps.yml");
+        home = new File(getDataFolder(), "Homes.yml");
+        help = new File(getDataFolder(), "Helps.yml");
+        group = new File(getDataFolder(), "Groups.yml");
+        latest = new File(getDataFolder(), "Latest.yml");
+        banned = new File(getDataFolder(), "Banned.yml");
+        title = new File(getDataFolder(), "ServerTitle.yml");
+        back = new File(getDataFolder(), "Backs.yml");
+        op = new File(getDataFolder(), "op.yml");
+        settings = new File(getDataFolder(), "Settings.yml");
+        temp = new File(getDataFolder(), "Temp.yml");
+        tab = new File(getDataFolder(), "Tab.yml");
+        automessage = new File(getDataFolder(), "PlayerStatus.yml");
+        away = new File(getDataFolder(), "AwayFastBoard.yml");
+        if (!s.exists()) {
+            var1 = getConfig().getStringList("ServerIcon").iterator();
+
+            while(var1.hasNext()) {
+                x = (String)var1.next();
+                saveResource(x, false);
+            }
+        }
+        try {
+            var1 = getConfig().getStringList("ServerIcon").iterator();
+
+            while(var1.hasNext()) {
+                x = (String)var1.next();
+                getServer().loadServerIcon(new File(getDataFolder(), x));
+            }
+
+            getStatus().load(automessage);
+            getTab().load(tab);
+            getTemp().load(temp);
+            getReport().load(report);
+            getLanguage().load(language);
+            getUser().load(user);
+            getData().load(data);
+            getDataMoney().load(datamoney);
+            getPermission().load(permission);
+            getWarp().load(warp);
+            getHome().load(home);
+            getHelp().load(help);
+            getGroup().load(group);
+            getLatest().load(latest);
+            getBanned().load(banned);
+            getTitle().load(title);
+            getBack().load(back);
+            getOP().load(op);
+            getSettings().load(settings);
+            getAway().load(away);
+        } catch (Exception var3) {
+            var3.printStackTrace();
+        }
+    }
     public void initconfig() {
         Iterator var1;
         String x;
@@ -265,9 +332,15 @@ public class Functions extends JavaPlugin {
 
     }
 
-    public void SaveConfig() {
+    public void saveTab() {
         try {
             getTab().save(new File(getDataFolder(), "Tab.yml"));
+        } catch(IOException io) {
+            io.printStackTrace();
+        }
+    }
+    public void SaveConfig() {
+        try {
             getTemp().save(new File(getDataFolder(), "Temp.yml"));
             getReport().save(new File(getDataFolder(), "Report.yml"));
             getLanguage().save(new File(getDataFolder(), "Language-" + getConfig().getString("Language") + ".yml"));

@@ -82,6 +82,7 @@ public class CommandMain implements TabExecutor {
                 a = System.currentTimeMillis();
                 this.p.initconfig();
                 this.p.reloadConfig();
+                p.reloadConfiguration();
                 sender.sendMessage(this.p.String(1, "Functions-Reload", "§aReloaded successfully in %time-ms%").replace("%time-ms%", ((double)System.currentTimeMillis() - (double)a) / 1000.0D + ""));
                 return true;
             }
