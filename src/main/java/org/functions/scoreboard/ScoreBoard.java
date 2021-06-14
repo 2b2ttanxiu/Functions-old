@@ -21,38 +21,27 @@ public class ScoreBoard {
         Objective obj = b.registerNewObjective("Functions", "dummy");
         if (nms.nms.getGroup().getBoolean(nms.nms.getGroup(player.getName()) + ".ScoreBoardEnabled")) {
             if (player.getScoreboard().getObjective(DisplaySlot.SIDEBAR) != null) {
-                    player.getScoreboard().getObjective(DisplaySlot.SIDEBAR).unregister();
-                    player.getScoreboard().clearSlot(DisplaySlot.SIDEBAR);
-                }
-
-                score = nms.nms.getGroup().getStringList(nms.nms.getGroup(player.getName()) + ".ScoreBoard");
-                int i = score.size();
-                String title = nms.nms.getGroup().getString(nms.nms.getGroup(player.getName()) + ".ScoreBoardDisplayName");
-                obj.setDisplayName(nms.replace(player, title));
-                obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-
-                for(int s = 0; s < i; ++s) {
-                    String sf = nms.replace(player, (String)score.get(s));
-                    Score sc = obj.getScore(nms.replace(player,sf));
-                    sc.setScore(i - s - 1);
-                }
-                for (Player p : nms.getOnlinePlayers()) {
-                    Team team = b.registerNewTeam(p.getName());
-                    PlayerDisplay d = nms.getPlayerDisplay(p.getUniqueId());
-                    team.setPrefix(d.getPrefix());
-                    team.setSuffix(d.getSuffix());
-                    team.addEntry(p.getName());
-                }
-                player.setScoreboard(b);
-            if (player.getScoreboard().getObjective(DisplaySlot.SIDEBAR) != null) {
                 player.getScoreboard().getObjective(DisplaySlot.SIDEBAR).unregister();
                 player.getScoreboard().clearSlot(DisplaySlot.SIDEBAR);
             }
-        }
-
-        if (player.getScoreboard().getObjective(DisplaySlot.SIDEBAR) != null) {
-            player.getScoreboard().getObjective(DisplaySlot.SIDEBAR).unregister();
-            player.getScoreboard().clearSlot(DisplaySlot.SIDEBAR);
+            score = nms.nms.getGroup().getStringList(nms.nms.getGroup(player.getName()) + ".ScoreBoard");
+            int i = score.size();
+            String title = nms.nms.getGroup().getString(nms.nms.getGroup(player.getName()) + ".ScoreBoardDisplayName");
+            obj.setDisplayName(nms.replace(player, title));
+            obj.setDisplaySlot(DisplaySlot.SIDEBAR);
+            for(int s = 0; s < i; ++s) {
+                String sf = nms.replace(player, (String)score.get(s));
+                Score sc = obj.getScore(nms.replace(player,sf));
+                sc.setScore(i - s - 1);
+            }
+            for (Player p : nms.getOnlinePlayers()) {
+                Team team = b.registerNewTeam(p.getName());
+                PlayerDisplay d = nms.getPlayerDisplay(p.getUniqueId());
+                team.setPrefix(d.getPrefix());
+                team.setSuffix(d.getSuffix());
+                team.addEntry(p.getName());
+            }
+            player.setScoreboard(b);
         }
 
     }

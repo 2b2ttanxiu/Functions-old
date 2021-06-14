@@ -13,7 +13,7 @@ public class OnScoreBoard implements Runnable {
         for (Player pl : nms.getOnlinePlayers()) {
             if (!nms.nms.getData().getBoolean(pl.getName()+".toggle.scoreboard")) {
                 ScoreBoard.run(pl);
-            } else {
+            } else if (nms.nms.getData().getBoolean(pl.getName()+".toggle.scoreboard")) {
                 Scoreboard b = nms.getServer().getScoreboardManager().getNewScoreboard();
                 for (Player p : nms.getOnlinePlayers()) {
                     Team team = b.registerNewTeam(p.getName());
