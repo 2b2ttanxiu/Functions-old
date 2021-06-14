@@ -21,6 +21,10 @@ public class RegisterCommand {
         CommandDifficulty.run(this.p);
         CommandMoney.run(p);
         CommandPay.run(p);
+        CommandToggle.run(p);
+        CommandPosition.run(p);
+        CommandKickAll.run(p);
+        p.getCommand("group").setTabCompleter(new CommandGroup());
         p.getCommand("functions").setTabCompleter(new CommandMain());
         p.getCommand("chat").setTabCompleter(new CommandChat());
         p.getCommand("gamemode").setTabCompleter(new CommandGameMode());

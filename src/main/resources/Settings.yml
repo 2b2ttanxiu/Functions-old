@@ -6,7 +6,7 @@ Date-Time:
   Time: "HH:mm:ss"
   DayTime: "mm:ss"
   Start: "%yyyy%-%mm%-%dd% %h%:%m%:%s%"
-MoneyFormat-matches: "[0-9]*.[0-9]*"
+MoneyFormat-matches: "[0-9]*\\.[0-9]*"
 MoneyFormat: "#.####"
 OP-Group: true
 OP-setGroup: OP
@@ -38,7 +38,7 @@ Command:
       - pl
       - plugins
 Kick:
-  Message: The server's kick you
+  Message: "The %servername%'s kick you game."
 AnimationsEnable:
   - Default
   - Board
@@ -78,6 +78,7 @@ Animations:
       - "Welcome %prefix%%player%%suffix% %ping%"
 ActionBar: "%animation:Default% %cps% | %status%"
 List:
+  FormatLocation: "#.##"
   Location: "%world%,%x%,%y%,%z%"
   Warp: "%warp% (Count:%count%,Location:%location%), "
   RAM: "%usize% / %max%MB (%size%%)"
@@ -87,6 +88,9 @@ List:
   CPS: "%count% / %max%"
   Plugins: "%plugin%(%count%) "
 resetBack: true
+RandomTeleport:
+  max: 500
+  min: 0
 GameRule:
   MobGriefing:
     CREEPER: true

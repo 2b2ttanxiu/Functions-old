@@ -193,6 +193,9 @@ public class CommandMain implements TabExecutor {
     }
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         List<String> s = new ArrayList();
+        if (!sender.isOp()) {
+            return null;
+        }
         if (args.length == 1) {
             s.add("reload");
             s.add("confirm");

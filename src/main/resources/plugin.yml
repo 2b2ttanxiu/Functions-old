@@ -1,5 +1,5 @@
 name: Functions
-version: 2.2.0.2
+version: 2.2.1.0
 main: org.functions.Main.Functions
 author: 2b2ttianxiu,CCBlueXianYu(Check Language...),Dai_Mao,qiqi008
 description: Updater!
@@ -83,3 +83,11 @@ commands:
     aliases: [plugin,pl,.plugins,.pl,.plugin]
   money:
     description: Functions command of money admin.
+  pay:
+    description: Functions command of pay to player,
+  toggle:
+    description: Functions command of toggle actionbar, tab and scoreboard.
+  position:
+    description: Functions command of list player position.
+  kickall:
+    description: Functions command of kick all players, but no kick admin player.

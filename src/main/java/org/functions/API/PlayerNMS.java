@@ -2,10 +2,9 @@ package org.functions.API;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.UUID;
+import java.text.DecimalFormat;
+import java.util.*;
+
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -16,6 +15,7 @@ import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
+import org.functions.API.AFK.Away;
 import org.functions.Main.Functions;
 import org.functions.Tools.ActionBar;
 import org.functions.Tools.Status;
@@ -30,7 +30,9 @@ public class PlayerNMS {
 
     public PlayerNMS() {
     }
-
+    public Away getaway(UUID uuid) {
+        return new Away(uuid);
+    }
     public String ping(Player Player) {
         return getPing.getPing(Player) + "";
     }
@@ -256,7 +258,9 @@ public class PlayerNMS {
             return 0;
         }
     }
-
+    public Player getPlayer(UUID uuid) {
+        return getServer().getPlayer(uuid);
+    }
     public String Boolean(boolean Boolean) {
         return !Boolean ? "§c" + Boolean + "§r" : "§a" + Boolean + "§r";
     }
@@ -264,7 +268,21 @@ public class PlayerNMS {
     public AutoMessage AutoMessage() {
         return new AutoMessage();
     }
-
+    public String StringBoolean(boolean Boolean) {
+        return !Boolean ? "§c" : "§a";
+    }
+    @SuppressWarnings("all")
+    public String changeLocation(Location loc) {
+        String x = Functions.getMain().getSettings().getString("List.Location");
+        x = x.replace("%world%",loc.getWorld().getName());
+        DecimalFormat df = new DecimalFormat(nms.getSettings().getString("List.FormatLocation"));
+        x = x.replace("%x%",Double.parseDouble(df.format(loc.getX()))+"");
+        x = x.replace("%y%",Double.parseDouble(df.format(loc.getY()))+"");
+        x = x.replace("%z%",Double.parseDouble(df.format(loc.getZ()))+"");
+        x = x.replace("%yaw%",Float.parseFloat(df.format(loc.getYaw()))+"");
+        x = x.replace("%pitch%",Float.parseFloat(df.format(loc.getPitch()))+"");
+        return x;
+    }
     public String Location(Player Player) {
         String x = Functions.getMain().getSettings().getString("List.Location");
         x = x.replace("%world%", this.getWorld(Player).getName());
@@ -275,7 +293,6 @@ public class PlayerNMS {
         x = x.replace("%pitch%", this.getPitch(Player) / 1000.0F + "");
         return x;
     }
-
     public String ShowPrefix(Object Player) {
         return this.nms.getPrefix(this.nms.getGroup(Player.toString()), Player.toString()).equals("") ? "none" : this.nms.getPrefix(this.nms.getGroup(Player.toString()), Player.toString());
     }
@@ -334,6 +351,12 @@ public class PlayerNMS {
 	public Money money(UUID uuid) {
         return new Money(uuid);
 	}
+	public DisplayName setDisplayName(UUID uuid) {
+        return new DisplayName(uuid);
+    }
+	public PlayerDisplay getPlayerDisplay(UUID uuid) {
+        return new PlayerDisplay(uuid);
+    }
     public String replace(Player Player, String Message) {
         Functions a = Functions.getMain();
         String PlayerPrefix = a.getPrefix(a.getGroup(Player.getName()), Player.getName());
@@ -355,7 +378,7 @@ public class PlayerNMS {
             Message = Message.replace("%animation:" + x + "%", (CharSequence)ls.get(i));
         }
         Status status = new Status(Player.getUniqueId(), this);
-        return Message.replace("%money%",money(Player.getUniqueId()).getMoney()+"").replace("&", "§").replace("%player%", Player.getName()).replace("%suffix%", PlayerSuffix).replace("%prefix%", PlayerPrefix).replace("%level%", PlayerLevel).replace("%health%", PlayerHealth).replace("%ping%", PlayerPing).replace("%tps%", getTPS()).replace("%ip%", Player.getAddress().getAddress().getHostAddress()).replace("%servername%", a.getConfig().getString("Server-Name", "Unknown Server")).replace("%date%", a.getDate()).replace("%time%", a.getTime()).replace("%online%", this.getOnline() + "").replace("%cps%", CPS).replace("%starttime%", this.nms.getStartTime()).replace("%status%", status.getStatus());
+        return Message.replace("%money%",money(Player.getUniqueId()).getMoney()+"").replace("&", "§").replace("%player%", Player.getName()).replace("%suffix%", PlayerSuffix).replace("%prefix%", PlayerPrefix).replace("%level%", PlayerLevel).replace("%health%", PlayerHealth).replace("%ping%", PlayerPing).replace("%tps%", getTPS()).replace("%ip%", Player.getAddress().getAddress().getHostAddress()).replace("%servername%", a.getConfig().getString("ServerName", "Unknown Server")).replace("%date%", a.getDate()).replace("%time%", a.getTime()).replace("%online%", this.getOnline() + "").replace("%cps%", CPS).replace("%starttime%", this.nms.getStartTime()).replace("%status%", status.getStatus());
     }
 
     public void sendOPs(String Message) {

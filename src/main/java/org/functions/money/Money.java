@@ -77,9 +77,9 @@ public class Money {
     }
     public void PayMoney(UUID uuid1,double pay) {
         double mainhas = main.getDouble(uuid+".Money");
-        double targethas = main.getDouble(uuid1+".Money");
         mainhas = mainhas - pay;
         if (mainhas >= 0) {
+            double targethas = main.getDouble(uuid1+".Money");
             targethas = targethas + pay;
             main.set(uuid+".Money",mainhas);
             main.set(uuid1+".Money",targethas);

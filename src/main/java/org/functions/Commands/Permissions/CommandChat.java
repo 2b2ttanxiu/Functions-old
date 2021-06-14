@@ -138,8 +138,10 @@ public class CommandChat implements TabExecutor {
             return s;
         } else {
             if (args.length == 1) {
-                s.add("channel");
-                s.add("clear");
+                if (p.hasPermission(sender.getName(), "functions.command.chat.others")) {
+                    s.add("channel");
+                    s.add("clear");
+                }
             }
 
             return s;

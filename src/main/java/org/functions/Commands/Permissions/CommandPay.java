@@ -21,7 +21,7 @@ public class CommandPay implements TabExecutor {
     public boolean onCommand(CommandSender sender,Command cmd,String s,String[] args) {
         if (cmd.getName().equalsIgnoreCase("pay")) {
             if (!(sender instanceof Player)) {
-                sender.sendMessage(nms.nms.OnlyPlayer());
+                sender.sendMessage(nms.nms.String(0, "OnlyPlayer", "§cOnly player execute command!").replace("%player%", sender.getName()));
                 return true;
             }
             if (!nms.nms.getDisplayNameOnline(args[0])) {
@@ -38,7 +38,7 @@ public class CommandPay implements TabExecutor {
                 sender.sendMessage(nms.nms.String(1, "matchesMaths", "&cYou number has text, matches: {0}").replace("%player%", me.getName()).replace("%target%", args[0]).replace("{0}", regex));
                 return true;
             }
-            long d = Long.parseLong(args[1]);
+            double d = Double.parseDouble(args[1]);
             if (!nms.money(uuid1).IfPayMoney(d)) {
                 sender.sendMessage(nms.nms.String(1, "IfPayMoney", "You don't pay money to %target% user, you user no many money").replace("%player%", me.getName()).replace("%target%", args[0]).replace("%make_money%", d + "").replace("%money%", m.getMoney() + ""));
                 return true;

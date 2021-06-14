@@ -36,7 +36,7 @@ public class CommandMoney implements TabExecutor {
                         sender.sendMessage(nms.nms.String(1, "matchesMaths", "&cYou number has text, matches: {0}").replace("%player%", me).replace("%target%", args[0]).replace("{0}", regex));
                         return true;
                     }
-                    long d = Long.parseLong(args[2]);
+                    double d = Double.parseDouble(args[2]);
                     m.addMoney(d);
                     sender.sendMessage(nms.nms.String(1, "GiveMoney", "You give money to %target% %make_money%,Now %target% has %money%").replace("%player%", me).replace("%target%", args[0]).replace("%make_money%", d + "").replace("%money%", m.getMoney() + ""));
                     return true;
@@ -46,7 +46,7 @@ public class CommandMoney implements TabExecutor {
                         sender.sendMessage(nms.nms.String(1, "matchesMaths", "&cYou number has text, matches: {0}").replace("%player%", me).replace("%target%", args[0]).replace("{0}", regex));
                         return true;
                     }
-                    long d = Long.parseLong(args[2]);
+                    double d = Double.parseDouble(args[2]);
                     if (!m.IfRemoveMoney(d)) {
                         sender.sendMessage(nms.nms.String(1, "IfRemoveMoney", "You remove money if %target% has %money%").replace("%player%", me).replace("%target%", args[0]).replace("%make_money%", d + "").replace("%money%", m.getMoney() + ""));
                         return true;
@@ -66,7 +66,7 @@ public class CommandMoney implements TabExecutor {
                         sender.sendMessage(nms.nms.String(1, "matchesMaths", "&cYou number has text, matches: {0}").replace("%player%", me).replace("%target%", args[0]).replace("{0}", regex));
                         return true;
                     }
-                    long d = Long.parseLong(args[2]);
+                    double d = Double.parseDouble(args[2]);
                     m.setMoney(d);
                     sender.sendMessage(nms.nms.String(1, "setMoney", "You set money to %target%'s %money%").replace("%player%", me).replace("%target%", args[0]).replace("%make_money%", d + "").replace("%money%", m.getMoney() + ""));
                     return true;
@@ -87,7 +87,7 @@ public class CommandMoney implements TabExecutor {
                         sender.sendMessage(nms.nms.String(1, "matchesMaths", "&cYou number has text, matches: {0}").replace("%player%", me).replace("%target%", args[0]).replace("{0}", regex));
                         return true;
                     }
-                    long d = Long.parseLong(args[2]);
+                    double d = Double.parseDouble(args[2]);
                     UUID uuid1 = nms.getPlayer(sender).getUniqueId();
                     if (!nms.money(uuid1).IfPayMoney(d)) {
                         sender.sendMessage(nms.nms.String(1, "IfPayMoney", "You don't pay money to %target% user, you user no many money").replace("%player%", me).replace("%target%", args[0]).replace("%make_money%", d + "").replace("%money%", m.getMoney() + ""));
@@ -126,7 +126,7 @@ public class CommandMoney implements TabExecutor {
                         sender.sendMessage(nms.nms.String(1,"matchesMaths","&cYou number has text, matches: {0}").replace("%player%",me).replace("%target%",args[0]).replace("{0}",regex));
                         return true;
                     }
-                    long d = Long.parseLong(args[2]);
+                    double d = Double.parseDouble(args[2]);
                     m.addMoney(d);
                     sender.sendMessage(nms.nms.String(1,"GiveMoney","You give money to %target% %make_money%,Now %target% has %money%").replace("%player%",me).replace("%target%",args[0]).replace("%make_money%",d+"").replace("%money%",m.getMoney()+""));
                     return true;
@@ -136,7 +136,7 @@ public class CommandMoney implements TabExecutor {
                         sender.sendMessage(nms.nms.String(1,"matchesMaths","&cYou number has text, matches: {0}").replace("%player%",me).replace("%target%",args[0]).replace("{0}",regex));
                         return true;
                     }
-                    long d = Long.parseLong(args[2]);
+                    double d = Double.parseDouble(args[2]);
                     if (!m.IfRemoveMoney(d)) {
                         sender.sendMessage(nms.nms.String(1,"IfRemoveMoney","You remove money if %target% has %money%").replace("%player%",me).replace("%target%",args[0]).replace("%make_money%",d+"").replace("%money%",m.getMoney()+""));
                         return true;
@@ -150,7 +150,7 @@ public class CommandMoney implements TabExecutor {
                         sender.sendMessage(nms.nms.String(1,"matchesMaths","&cYou number has text, matches: {0}").replace("%player%",me).replace("%target%",args[0]).replace("{0}",regex));
                         return true;
                     }
-                    long d = Long.parseLong(args[2]);
+                    double d = Double.parseDouble(args[2]);
                     m.setMoney(d);
                     sender.sendMessage(nms.nms.String(1,"setMoney","You set money to %target%'s %money%").replace("%player%",me).replace("%target%",args[0]).replace("%make_money%",d+"").replace("%money%",m.getMoney()+""));
                     return true;

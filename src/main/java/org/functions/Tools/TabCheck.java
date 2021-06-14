@@ -12,10 +12,7 @@ public class TabCheck implements Runnable {
     }
 
     public void run() {
-        Iterator var1 = this.a.getServer().getOnlinePlayers().iterator();
-
-        while(var1.hasNext()) {
-            Player p = (Player)var1.next();
+        for (Player p : a.getServer().getOnlinePlayers()) {
             ++this.i;
             String DisplayName = p.getName();
             String PlayerPrefix = this.a.getPrefix(this.a.getGroup(DisplayName), DisplayName);
@@ -24,11 +21,15 @@ public class TabCheck implements Runnable {
             String PlayerHealth = (int)p.getHealth() + "";
             String PlayerLevel = p.getLevel() + 1 + "";
             String ListPlayer = this.a.getTab().getString("TabListPlayer").replace("&", "§").replace("%player%", DisplayName).replace("%suffix%", PlayerSuffix).replace("%prefix%", PlayerPrefix).replace("%level%", PlayerLevel).replace("%health%", PlayerHealth).replace("%ping%", PlayerPing);
-            p.setPlayerListName(ListPlayer);
-            p.setCustomName(ListPlayer);
-            p.setCustomNameVisible(true);
-            p.showPlayer(this.a, p);
-            p.hidePlayer(this.a, p);
+            //p.setPlayerListName(ListPlayer);
+            //p.setDisplayName(ListPlayer);
+            //p.setCustomName(ListPlayer);
+            //p.setCustomNameVisible(true);
+            //a.sendConsole(1,"test");
+            //a.nms().setDisplayName(p.getUniqueId()).setAll();
+            //a.sendConsole(1,"a");
+            //p.showPlayer(a, p);
+            //p.hidePlayer(a, p);
         }
 
     }

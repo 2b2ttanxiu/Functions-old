@@ -3,6 +3,7 @@ package org.functions.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.functions.Listeners.Away.AwayListener;
 import org.functions.Listeners.BlackIfWhiteListener;
 import org.functions.Listeners.ChatListener;
 import org.functions.Listeners.CheckPlayerBanned_and_modeListener;
@@ -39,5 +40,6 @@ public class RegisterListener {
         pm.registerEvents(new StatusListener(), this.p);
         pm.registerEvents(new ClickListener(), this.p);
         pm.registerEvents(new GameRuleListener(), this.p);
+        pm.registerEvents(new AwayListener(),this.p);
     }
 }

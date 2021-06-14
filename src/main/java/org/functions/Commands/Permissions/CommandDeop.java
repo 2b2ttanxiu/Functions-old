@@ -57,6 +57,9 @@ public class CommandDeop implements TabExecutor {
     }
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         List<String> s = new ArrayList();
+        if (!sender.isOp()) {
+            return s;
+        }
         Iterator var6 = this.p.nms().getOnlinePlayers().iterator();
 
         while(var6.hasNext()) {

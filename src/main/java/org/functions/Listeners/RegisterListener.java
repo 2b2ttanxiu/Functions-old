@@ -1,6 +1,8 @@
 package org.functions.Listeners;
 
 import org.bukkit.plugin.PluginManager;
+import org.functions.API.AFK.Away;
+import org.functions.Listeners.Away.AwayListener;
 import org.functions.Main.Functions;
 
 public class RegisterListener {
@@ -10,5 +12,6 @@ public class RegisterListener {
     public void register() {
         PluginManager pm = Functions.getMain().getServer().getPluginManager();
         pm.registerEvents(new GameRuleListener(), Functions.getMain());
+        pm.registerEvents(new AwayListener(),Functions.getMain());
     }
 }
