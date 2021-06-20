@@ -24,6 +24,7 @@ Default:
     - functions.command.warp.others
     - functions.command.spawn.other
     - functions.command.list.others
+    - functions.command.seed.others
     - functions.command.prefix.use
     - functions.command.suffix.use
     - functions.command.destroyitem.others
@@ -89,6 +90,7 @@ VIP:
     - functions.command.home.others
     - functions.command.warp.others
     - functions.command.food.others
+    - functions.command.seed.others
     - functions.command.weather.others
     - functions.chat.text.ClearRAM
     - functions.command.spawn.other

@@ -8,10 +8,15 @@ import java.util.UUID;
 public class AwayRunnable implements Runnable{
     PlayerNMS nms = new PlayerNMS();
     public void run() {
+        if (!nms.nms.getSettings().getBoolean("AwayFromKeyBoard.enable")) return;
         for (Player p : nms.getOnlinePlayers()) {
             UUID uuid = p.getUniqueId();
+            if (nms.getaway(p.getUniqueId()).getTime()==0) {
+                p.sendMessage(nms.replace(p,nms.nms.String(1,"QuitAfk","You quit the away from keyboard.")));
+                return;
+            }
             nms.getaway(p.getUniqueId()).addTime();
-            if (nms.getaway(p.getUniqueId()).getTime() >= nms.nms.getSettings().getInt("AwayFromKeyBoard.StartCount")) {
+            if (nms.getaway(p.getUniqueId()).getTime() == nms.nms.getSettings().getInt("AwayFromKeyBoard.StartCount")) {
                 nms.getaway(p.getUniqueId()).setType(org.functions.API.AFK.Away.Type.AWAY);
                 p.sendMessage(nms.replace(p,nms.nms.String(1,"StartAfk","You away from keyboard.")));
                 return;

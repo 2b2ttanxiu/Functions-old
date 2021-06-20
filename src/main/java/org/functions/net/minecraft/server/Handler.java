@@ -1,5 +1,7 @@
 package org.functions.net.minecraft.server;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.util.List;
 import java.util.UUID;
@@ -10,9 +12,12 @@ import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Server;
 import org.bukkit.World;
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.functions.API.PlayerNMS;
+import org.functions.Main.Functions;
 import org.functions.Tools.TPS;
 import org.functions.net.minecraft.server.ServerVersion.Version;
 
@@ -329,6 +334,13 @@ public class Handler {
     }
 
     public void sendTabTitle(Player player, String header, String footer) {
+        try {
+            Functions.getMain().getTab().load(new File(Functions.getMain().getDataFolder(), "Tab.yml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InvalidConfigurationException e) {
+            e.printStackTrace();
+        }
         if (player != null) {
             if (header == null) {
                 header = "";

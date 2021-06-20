@@ -28,7 +28,7 @@ public class CommandKick implements CommandExecutor {
 
                 target = this.a.getServer().getPlayer(args[0]);
                 sender.sendMessage(this.a.String(1, "Kick", "Kicked %target%").replace("%target%", args[0]).replace("%player%", sender.getName()));
-                target.kickPlayer(this.a.getSettings().getString("Kick.Message").replace("%player%", sender.getName()).replace("%target%", args[0]));
+                target.kickPlayer(a.nms().replace((Player) sender,this.a.getSettings().getString("Kick.Message").replace("%player%", sender.getName()).replace("%target%", args[0])));
             }
         } else {
             if (args.length == 0) {
@@ -38,7 +38,7 @@ public class CommandKick implements CommandExecutor {
                 }
 
                 sender.sendMessage(this.a.String(1, "Kick", "Kicked %target%").replace("%target%", sender.getName()).replace("%player%", sender.getName()));
-                ((Player)sender).kickPlayer(this.a.getSettings().getString("Kick.Message").replace("%player%", sender.getName()).replace("%target%", sender.getName()));
+                ((Player)sender).kickPlayer(a.nms().replace((Player) sender,this.a.getSettings().getString("Kick.Message").replace("%player%", sender.getName()).replace("%target%", args[0])));
             }
 
             if (args.length == 1) {
@@ -54,7 +54,7 @@ public class CommandKick implements CommandExecutor {
 
                 target = this.a.getServer().getPlayer(args[0]);
                 sender.sendMessage(this.a.String(1, "Kick", "Kicked %target%").replace("%target%", args[0]).replace("%player%", sender.getName()));
-                target.kickPlayer(this.a.getSettings().getString("Kick.Message").replace("%player%", sender.getName()).replace("%target%", args[0]));
+                target.kickPlayer(a.nms().replace((Player) sender,this.a.getSettings().getString("Kick.Message").replace("%player%", sender.getName()).replace("%target%", args[0])));
             }
         }
 

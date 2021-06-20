@@ -6,12 +6,8 @@ import java.text.DecimalFormat;
 import java.util.*;
 
 import org.apache.commons.lang.StringUtils;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.OfflinePlayer;
-import org.bukkit.Server;
-import org.bukkit.World;
+import org.bukkit.*;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
@@ -36,7 +32,23 @@ public class PlayerNMS {
     public String ping(Player Player) {
         return getPing.getPing(Player) + "";
     }
+    public String TabListFooter(Player p) {
+        Functions a = Functions.getMain();
+        String Footer = "";
+        if (!a.getTab().getString("Footer").equals("none") && !a.getTab().getString("Footer").equals("")) {
+            for(int i = 0; i < a.getTab().getStringList("Footer").size(); ++i) {
+                if (i == a.getTab().getStringList("Footer").size() - 1) {
+                    Footer = Footer + (String)a.getTab().getStringList("Footer").get(i);
+                } else {
+                    Footer = Footer + (String)a.getTab().getStringList("Footer").get(i) + "\n";
+                }
+            }
+        } else {
+            Footer = "";
+        }
 
+        return this.replace(p, Footer);
+    }
     public String TabListHeader(Player p) {
         Functions a = Functions.getMain();
         String Header = "";
@@ -62,24 +74,6 @@ public class PlayerNMS {
 
     public String BooleanChange(String Name, boolean Boolean) {
         return Boolean ? "§a" + Name : "§c" + Name;
-    }
-
-    public String TabListFooter(Player p) {
-        Functions a = Functions.getMain();
-        String Footer = "";
-        if (!a.getTab().getString("Footer").equals("none") && !a.getTab().getString("Footer").equals("")) {
-            for(int i = 0; i < a.getTab().getStringList("Footer").size(); ++i) {
-                if (i == a.getTab().getStringList("Footer").size() - 1) {
-                    Footer = Footer + (String)a.getTab().getStringList("Footer").get(i);
-                } else {
-                    Footer = Footer + (String)a.getTab().getStringList("Footer").get(i) + "\n";
-                }
-            }
-        } else {
-            Footer = "";
-        }
-
-        return this.replace(p, Footer);
     }
 
     public String ActionBar(Player p) {
@@ -128,6 +122,23 @@ public class PlayerNMS {
         return s.split("|");
     }
 
+    /**
+     * find block;
+     * if find block is air
+     * run find block
+     * if block no item and air and air block wait...
+     * @return location;
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     * */
+    public Location BlockPosition(World world,int x,int z) {
+        return new Location(world,x,1,z);
+    }
     public PlayerInventory getItem(Player Player) {
         return Player.getInventory();
     }
@@ -257,6 +268,35 @@ public class PlayerNMS {
         } catch (Exception var2) {
             return 0;
         }
+    }
+    public String String(String String,String Default) {
+        return nms.String(1,String,Default).replace("%space%","\n");
+    }
+    public void sendPermission(Object p) {
+        ((Player)p).sendMessage(NotPermission());
+    }
+    public String NotPermission() {
+        return nms.Permission();
+    }
+    public boolean hasPermission(String name,String Permission) {
+        return nms.hasPermission(name,Permission);
+    }
+    public boolean permission(String name,String permission) {
+        List <String> p = nms.getPermission().getStringList(name);
+        if (!p.isEmpty()) {
+            p = nms.getGroup().getStringList(nms.getGroup(name)+".Permissions");
+            for (String x : p) {
+                if (x.contains(permission)) {
+                    return true;
+                }
+            }
+        }
+        for (String x : p) {
+            if (x.contains(permission)) {
+                return true;
+            }
+        }
+        return false;
     }
     public Player getPlayer(UUID uuid) {
         return getServer().getPlayer(uuid);

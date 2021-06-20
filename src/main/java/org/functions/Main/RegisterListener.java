@@ -15,6 +15,7 @@ import org.functions.Listeners.GameRuleListener;
 import org.functions.Listeners.InventoryClose;
 import org.functions.Listeners.JoinListener;
 import org.functions.Listeners.QuitListener;
+import org.functions.Listeners.Shop.MenuListener;
 import org.functions.Listeners.StatusListener;
 import org.functions.Listeners.TitleListener;
 
@@ -41,5 +42,24 @@ public class RegisterListener {
         pm.registerEvents(new ClickListener(), this.p);
         pm.registerEvents(new GameRuleListener(), this.p);
         pm.registerEvents(new AwayListener(),this.p);
+        pm.registerEvents(new MenuListener(),this.p);
+    }
+    public void cancel() {
+        PluginManager pm = Bukkit.getServer().getPluginManager();
+        pm.registerEvents(new InventoryClose(), this.p);
+        pm.registerEvents(new ChatListener(), this.p);
+        pm.registerEvents(new JoinListener(), this.p);
+        pm.registerEvents(new QuitListener(), this.p);
+        pm.registerEvents(new TitleListener(), this.p);
+        pm.registerEvents(new CheckPlayerBanned_and_modeListener(), this.p);
+        pm.registerEvents(new CommandListener(), this.p);
+        pm.registerEvents(new BlackIfWhiteListener(), this.p);
+        pm.registerEvents(new DeathListener(), this.p);
+        pm.registerEvents(new DispenseOn(), this.p);
+        pm.registerEvents(new StatusListener(), this.p);
+        pm.registerEvents(new ClickListener(), this.p);
+        pm.registerEvents(new GameRuleListener(), this.p);
+        pm.registerEvents(new AwayListener(),this.p);
+        pm.registerEvents(new MenuListener(),this.p);
     }
 }

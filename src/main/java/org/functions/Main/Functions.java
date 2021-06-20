@@ -17,6 +17,7 @@ import org.functions.API.PlayerManger;
 import org.functions.Tools.*;
 import org.functions.API.PlayerNMS;
 import org.functions.net.minecraft.server.ServerJar;
+import org.yaml.snakeyaml.Yaml;
 
 public class Functions extends JavaPlugin {
     private File away;
@@ -44,6 +45,8 @@ public class Functions extends JavaPlugin {
     private File temp;
     private File tab;
     private File automessage;
+    private File menu = new File(getDataFolder(),"Menu.yml");
+    private FileConfiguration Menu;
     private FileConfiguration Away;
     private FileConfiguration AutoMessage;
     private FileConfiguration Tab;
@@ -169,6 +172,9 @@ public class Functions extends JavaPlugin {
        tab = new File(getDataFolder(), "Tab.yml");
        automessage = new File(getDataFolder(), "PlayerStatus.yml");
        away = new File(getDataFolder(), "AwayFromKeyBoard.yml");
+        if (!menu.exists()) {
+            saveResource("Menu.yml",false);
+        }
         if (!s.exists()) {
             var1 = getConfig().getStringList("ServerIcon").iterator();
 
@@ -256,6 +262,7 @@ public class Functions extends JavaPlugin {
         if (!away.exists()) {
             saveResource("AwayFromKeyBoard.yml",false);
         }
+        Menu = new YamlConfiguration();
         Tab = new YamlConfiguration();
         Report = new YamlConfiguration();
         Language = new YamlConfiguration();
@@ -276,6 +283,7 @@ public class Functions extends JavaPlugin {
         Temp = new YamlConfiguration();
         AutoMessage = new YamlConfiguration();
         Away = new YamlConfiguration();
+        YamlConfiguration.loadConfiguration(menu);
         YamlConfiguration.loadConfiguration(tab);
         YamlConfiguration.loadConfiguration(report);
         YamlConfiguration.loadConfiguration(language);
@@ -304,7 +312,7 @@ public class Functions extends JavaPlugin {
                 x = (String)var1.next();
                 getServer().loadServerIcon(new File(getDataFolder(), x));
             }
-
+            Menu.load(menu);
             AutoMessage.load(automessage);
             Tab.load(tab);
             Temp.load(temp);
@@ -372,6 +380,7 @@ public class Functions extends JavaPlugin {
         }
 
     }
+    public FileConfiguration getMenu() {return Menu;}
     public FileConfiguration getAway() {
         return Away;
     }
@@ -546,6 +555,8 @@ public class Functions extends JavaPlugin {
 
     public void onDisable() {
         getConfig().set("StartServerTime", (Object)null);
+        saveConfig();
+        Bukkit.getServer().getScheduler().cancelTasks(this);
     }
 
     public void run(boolean Enabled) {

@@ -9,12 +9,16 @@ import org.functions.API.PlayerNMS;
 public class AwayListener implements Listener {
     PlayerNMS nms = new PlayerNMS();
     @EventHandler
-    public void join(PlayerQuitEvent b) {
+    public void quit(PlayerQuitEvent b) {
         nms.getaway(b.getPlayer().getUniqueId()).resetTime();
         nms.getaway(b.getPlayer().getUniqueId()).cancel();
     }
     @EventHandler
     public void click(PlayerInteractEvent b) {
+        nms.getaway(b.getPlayer().getUniqueId()).resetTime();
+        nms.getaway(b.getPlayer().getUniqueId()).cancel();
+    }
+    public void move(PlayerMoveEvent b) {
         nms.getaway(b.getPlayer().getUniqueId()).resetTime();
         nms.getaway(b.getPlayer().getUniqueId()).cancel();
     }

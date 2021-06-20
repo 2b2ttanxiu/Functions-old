@@ -1,0 +1,13 @@
+Menus:
+  Test:
+    openCommand:
+    size: 9
+    title: "test"
+    Items:
+      '1':
+        Material: STONE
+        Amount: 1
+        Lore:
+          - "test"
+        DisplayName: "test"
+        slot: 0

@@ -6,6 +6,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.functions.Main.Functions;
+import org.functions.shop.Menu;
+import org.functions.shop.MenuKey;
 
 public class CommandListener implements Listener {
     private Functions a = Functions.getMain();
@@ -20,11 +22,11 @@ public class CommandListener implements Listener {
         long L = Long - l;
         Iterator var8 = this.a.ListGroup().iterator();
 
-        while(var8.hasNext()) {
-            String x = (String)var8.next();
+        while (var8.hasNext()) {
+            String x = (String) var8.next();
             if (this.a.getData().getString(b.getPlayer().getName() + ".Group").equals(x) && !this.a.getGroup().getString(x + ".Delay.CommandTime").equals("none")) {
                 if (L <= this.a.getGroup().getLong(x + ".Delay.CommandTime")) {
-                    b.getPlayer().sendMessage(this.a.String(1, "DelayChat", "Please wait %delay%s!").replace("%delay%", "" + ((double)this.a.getGroup().getLong(x + ".Delay.CommandTime") - ((double)Long - (double)l)) / 1000.0D));
+                    b.getPlayer().sendMessage(this.a.String(1, "DelayChat", "Please wait %delay%s!").replace("%delay%", "" + ((double) this.a.getGroup().getLong(x + ".Delay.CommandTime") - ((double) Long - (double) l)) / 1000.0D));
                     b.setCancelled(true);
                 } else {
                     this.a.getData().set(b.getPlayer().getName() + ".CommandTime", Long);
@@ -43,8 +45,8 @@ public class CommandListener implements Listener {
         if (black) {
             var15 = Black_Command.iterator();
 
-            while(var15.hasNext()) {
-                x = (String)var15.next();
+            while (var15.hasNext()) {
+                x = (String) var15.next();
                 boolean is;
                 if (x.equals(cmd)) {
                     is = true;
@@ -63,8 +65,8 @@ public class CommandListener implements Listener {
             boolean io = true;
             var15 = White_Command.iterator();
 
-            while(var15.hasNext()) {
-                x = (String)var15.next();
+            while (var15.hasNext()) {
+                x = (String) var15.next();
                 if (x.equals(cmd)) {
                     io = false;
                 }
@@ -75,6 +77,17 @@ public class CommandListener implements Listener {
                 b.getPlayer().sendMessage(this.a.String(1, "CommandIfWhite", "I'm sorry, but you do not have permission to perform %command%.Please contact the server administrators if you believe that this is in error.").replace("%player%", b.getPlayer().getName()).replace("%command%", cmd));
             }
         }
-
+        MenuKey menuKey = new MenuKey(a.getMenu());
+        Menu menu;
+        for (String s : menuKey.toStringList()) {
+            menu = new Menu(b.getPlayer(), s);
+            for (String xs : menu.getOpenMenu()) {
+                if (cmd.equalsIgnoreCase(xs)) {
+                    menu.openMenu();
+                    b.setCancelled(true);
+                    return;
+                }
+            }
+        }
     }
 }

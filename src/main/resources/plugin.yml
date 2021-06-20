@@ -1,8 +1,8 @@
 name: Functions
-version: 2.2.1.0
+version: 2.2.2.0
 main: org.functions.Main.Functions
 author: 2b2ttianxiu,CCBlueXianYu(Check Language...),Dai_Mao,qiqi008
-description: Updater!
+description: Updaters!
 commands:
   msg:
     description: Functions commmand of message player

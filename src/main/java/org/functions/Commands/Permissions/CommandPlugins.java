@@ -99,20 +99,12 @@ public class CommandPlugins implements TabExecutor {
                         IsEnabled = this.nms.Boolean(p.isEnabled());
                         main = p.getDescription().getMain();
                         if ("on".equalsIgnoreCase(args[1])) {
-                            System.out.println(p.getDataFolder());
-                            try {
-                                nms.getServer().getPluginManager().loadPlugin(new File(p.getDataFolder()+".jar"));
-                            } catch (InvalidPluginException e) {
-                                e.printStackTrace();
-                            } catch (InvalidDescriptionException e) {
-                                e.printStackTrace();
-                            }
-                            //nms.getServer().getPluginManager().enablePlugin(p);
+                            nms.getServer().getPluginManager().getPlugin(Name).onLoad();
+                            nms.getServer().getPluginManager().getPlugin(Name).isEnabled();
                             sender.sendMessage(nms.nms.String(1,"EnabledPlugin","The plugin is on(enabled): {0}").replace("{0}",Name));
                             return true;
                         }
                         if ("off".equalsIgnoreCase(args[1])) {
-
                             nms.getServer().getPluginManager().disablePlugin(p);
                             sender.sendMessage(nms.nms.String(1,"DisabledPlugin","The plugin is off(disabled): {0}").replace("{0}",Name));
                             return true;
@@ -170,6 +162,8 @@ public class CommandPlugins implements TabExecutor {
             s.add("enabled");
             s.add("main");
             s.add("all");
+            s.add("on");
+            s.add("off");
             return s;
         } else {
             Plugin[] var6 = this.nms.getServer().getPluginManager().getPlugins();

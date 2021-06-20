@@ -1,5 +1,5 @@
 DefaultHelp: |-
-  Welcome to my %server%
+  Welcome to my %servername%
   TPS: %tps%
   You ping ms: %ping%
   Online players: %online%

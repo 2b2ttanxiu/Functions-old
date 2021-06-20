@@ -1,9 +1,10 @@
 AwayFromKeyBoard:
+  enabled: false
   StartCount: 60
   TimeoutKick: 300
   Texts:
-    - "60: You join keyboard away."
-    - "295: I'll kick you the game in."
+    - "60:You join keyboard away."
+    - "295:I'll kick you the game in."
   KickMessage: "I kick keyboard away."
 Date-Time:
   Date: "yyyy-MM-dd"
@@ -83,6 +84,7 @@ Animations:
       - "Welcome %prefix%%player%%suffix% %ping%"
 ActionBar: "%animation:Default% %cps% | %status%"
 List:
+  Worlds: "%world%(%count%) "
   FormatLocation: "#.##"
   Location: "%world%,%x%,%y%,%z%"
   Warp: "%warp% (Count:%count%,Location:%location%), "

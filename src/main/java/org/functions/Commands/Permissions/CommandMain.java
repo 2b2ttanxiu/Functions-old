@@ -7,8 +7,10 @@ import java.util.List;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
+import org.bukkit.entity.Player;
 import org.functions.API.PlayerManger;
 import org.functions.Main.Functions;
+import org.functions.shop.Menu;
 
 public class CommandMain implements TabExecutor {
     private Functions p = Functions.getMain();
@@ -35,6 +37,11 @@ public class CommandMain implements TabExecutor {
                 for (String s1 : sf) {
                     sender.sendMessage(s1.replace("%version%", this.p.NowVersion()).replace("&", "§").replace("%color%", "§").replace("§", "§"));
                 }
+                return true;
+            }
+            if (args[0].equalsIgnoreCase("menu")) {
+                Menu menu = new Menu((Player) sender, "Test");
+                menu.openMenu();
                 return true;
             }
             if (args[0].equalsIgnoreCase("update-Configuration")) {
@@ -101,47 +108,6 @@ public class CommandMain implements TabExecutor {
                 return true;
             }
 
-            if (args[0].equalsIgnoreCase("group")) {
-                Iterator var5 = this.p.ListGroup().iterator();
-
-                while(var5.hasNext()) {
-                    String x = (String)var5.next();
-                    if (x.equals(args[1])) {
-                        if (args[1].equals(this.p.getGroup(args[2]))) {
-                            sender.sendMessage(this.p.String(1, "TargetInGroup", "%target% in the %group%").replace("%target%", args[2]).replace("%group%", args[1]));
-                            return true;
-                        }
-
-                        this.p.getData().set(args[2] + ".Group", args[1]);
-                        this.p.SaveConfig();
-                        sender.sendMessage(this.p.String(1, "setGroup", "%target% set %group%").replace("%target%", args[2]).replace("%group%", args[1]));
-                        return true;
-                    }
-                }
-            }
-
-            List ls;
-            if (args[0].equalsIgnoreCase("op")) {
-                ls = this.p.getOP().getStringList("Administrators");
-                Iterator var16 = this.p.getOP().getStringList("Administrators").iterator();
-
-                String x;
-                do {
-                    if (!var16.hasNext()) {
-                        ls.add(args[1]);
-                        this.p.getOP().set("Administrators", ls);
-                        this.p.SaveConfig();
-                        sender.sendMessage(this.p.String(1, "GiveAdministrator", "Give %target% server administrator").replace("%player%", sender.getName()).replace("%target%", args[1]));
-                        return true;
-                    }
-
-                    x = (String)var16.next();
-                } while(!x.equals(args[1]));
-
-                sender.sendMessage(this.p.String(1, "Administrator-TargetIf", "§c%target% if server administrator!").replace("%player%", sender.getName()).replace("%target%", args[1]));
-                return true;
-            }
-
             if (args[0].equalsIgnoreCase("smode")) {
                 if (this.p.getSettings().getBoolean("Maintenance")) {
                     this.p.getSettings().set("Maintenance", false);
@@ -158,35 +124,6 @@ public class CommandMain implements TabExecutor {
 
             if (args[0].equalsIgnoreCase("start")) {
                 sender.sendMessage(this.p.String(1, "StartServerTime", "Start Server Time: %starttime%").replace("%starttime%", this.p.getStartTime()));
-            }
-
-            if (args[0].equalsIgnoreCase("deop")) {
-                ls = this.p.getOP().getStringList("Administrators");
-                if (ls.size() == 0) {
-                    sender.sendMessage(this.p.String(1, "Administrator-Null", "§cServer administrator of null!,Pleases use /functions op <player> add server administrator.").replace("%player%", sender.getName()));
-                    return true;
-                }
-
-                boolean is = false;
-                Iterator var7 = this.p.getOP().getStringList("Administrators").iterator();
-
-                do {
-                    if (!var7.hasNext()) {
-                        ls.remove(args[0]);
-                        this.p.getOP().set("Administrators", ls);
-                        this.p.SaveConfig();
-                        sender.sendMessage(this.p.String(1, "DeleteAdministrator", "Remove %target% server administrator").replace("%player%", sender.getName()).replace("%target%", args[0]));
-                        return true;
-                    }
-
-                    String x = (String)var7.next();
-                    if (x.equals(args[0])) {
-                        is = true;
-                    }
-                } while(is);
-
-                sender.sendMessage(this.p.String(1, "NoAdministrator-TargetIf", "§c%target% no if server administrator!").replace("%player%", sender.getName()).replace("%target%", args[0]));
-                return true;
             }
         }
 
