@@ -21,6 +21,7 @@ public class CommandMoney implements TabExecutor {
     public boolean onCommand(CommandSender sender,Command cmd,String s,String[] args) {
         if (cmd.getName().equalsIgnoreCase("money")) {
             if (sender instanceof Player) {
+                if (args.length < 1) return true;
                 UUID id = nms.getPlayer(false, args[0]).getUniqueId();
                 String me = sender.getName();
                 Money m = nms.money(id);
