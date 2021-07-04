@@ -18,25 +18,16 @@ public class CommandSpreadPlayers implements TabExecutor {
     }
     PlayerNMS nms = new PlayerNMS();
     public boolean onCommand(CommandSender sender,Command cmd,String s,String[] args) {
-        int minloc = Integer.parseInt(args[2]);
-        int maxloc = Integer.parseInt(args[3]);
-        String ran = "";
+        double minloc = Double.parseDouble(args[1]);
+        double maxloc = Double.parseDouble(args[2]);
+        Player p = Bukkit.getPlayer(args[0]);
         Random r = new Random();
-        int max = 0;
-        int min = 0;
-        for (int i = 0;i < 2;i++) {
-            max = r.nextInt(maxloc+1);
-            min = r.nextInt(minloc+1);
-        }
-        for (int i = 0;i <2;i++) {
-            if (r.nextInt(2) == 0) {
-                if (r.nextInt(2) == 1) {
-                    min = Integer.parseInt("-"+min);
-                } else {
-                    max = Integer.parseInt("-"+max);
-                }
-            }
-        }
+        World playerWorld = Bukkit.getWorlds().get(0); // 获得主世界
+        double randX = r.nextInt(maxloc) - minloc;
+        double randZ = r.nextInt(maxloc) - minloc;
+        Location offset = new Location(playerWorld, randX, 0, randZ).toHighestLocation(); // 获得最高的非空气方块
+        p.teleport(player.getLocation().add(offset)); // add 加算距离
+        player.sendMessage(nms.nms.String(1,"SpreadPlayers-Successfully","Successfully players spread players to location.");
         return true;
     }
     public List<String> onTabComplete(CommandSender sender, Command cmd, String s, String[] args) {
