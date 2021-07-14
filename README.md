@@ -1,2 +1,4 @@
 # Functions
 Bstats: https://bstats.org/plugin/bukkit/Functions/11673
+I 2b2ttianxiu author will rewrite a very good plug-in, but the version will be to 3.0.0.0 to name, but you need to download a special plug-in, wait for the author to update the 3.0 plug-in, you do not need to manually update the plug-in, functions it will download to a folder named update in. The authors try to reduce your server allows CPU and memory, the authors try to use Java 16 to redo as little as possible, Minecraft 1.17 is also just out not, some server Java is not compatible with 1.17, so the authors try to use Java 8 to redo the plug-in.
+我2b2ttianxiu作者会重新写一个非常好的插件，但版本会是以3.0.0.0来命名，但你需要下载一个特别的插件，等待作者更新3.0插件，您不需要手动更新插件，functions它会下载到一个名为update里的文件夹。作者尽量减少你的服务器允许CPU和内存，作者尽量少用Java 16 来重做，Minecraft 1.17也是刚出来不就，一些服务器Java没有兼容1.17的，所以作者尽量用Java 8来重做插件。
