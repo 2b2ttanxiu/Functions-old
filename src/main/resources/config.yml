@@ -3,7 +3,7 @@ ServerName: Unknown Server
 Language: en
 Updated:
   DownloadEnable: true
-  CheckTime_minutes: 1
+  CheckTime_minutes: 10
   CheckEnable: true
 List:
   Group:
