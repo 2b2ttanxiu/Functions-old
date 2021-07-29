@@ -509,6 +509,7 @@ public class Functions extends JavaPlugin {
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new ServerTitleRandomText(), 20L, (long)(getTitle().getInt("ResetTitle") / 1000 * 20));
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new PlayerOnline(), 20L, 20L);
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new TabList(), 1L, 1L);
+        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new CheckVersion(), 20, getConfjg().getLong("Updated.CheckTime_minutes",10) * 60 *20);
         sendConsole(1, "Thread if enabled!");
         String v = Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
         sendConsole(1, "Server NMS version: " + v + ".");
