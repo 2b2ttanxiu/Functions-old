@@ -20,7 +20,7 @@ public class CheckVersion implements Runnable {
         String Info = null;
 
         try {
-            URL url = new URL("http://lt.limc.cc:38308/Functions/Info.md");
+            URL url = new URL("https://gitee.com/Tianxiu2b2t/Functions/raw/master/CheckVersionFiles.txt");
             InputStream is = url.openStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
             Info = br.readLine();
@@ -35,7 +35,7 @@ public class CheckVersion implements Runnable {
         String version = null;
 
         try {
-            URL url = new URL("http://lt.limc.cc:38308/Functions/README.md");
+            URL url = new URL("https://gitee.com/Tianxiu2b2t/Functions/raw/master/Messages.txt");
             InputStream is = url.openStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
             version = br.readLine();
@@ -58,6 +58,7 @@ public class CheckVersion implements Runnable {
     }
 
     public void run() {
+        String v = getNewVersion();
         boolean Enable = Functions.getMain().getConfig().getBoolean("Updated.CheckEnable");
         if (Enable && !isVersion()) {
             Functions.getMain().getServer().getConsoleSender().sendMessage(Functions.getMain().Prefix() + Info().replace("&", "§").replace("%{nowversion}", Functions.getMain().NowVersion()).replace("%{newversion}", getNewVersion()));
@@ -67,8 +68,6 @@ public class CheckVersion implements Runnable {
             if (getNewVersion().equals(Functions.getMain().NowVersion())) {
                 return;
             }
-
-            String name = "Functions-v" + getNewVersion();
             File temp = new File(Functions.getMain().getDataFolder(), "Releases");
             if (!temp.exists()) {
                 temp.mkdir();
@@ -82,7 +81,7 @@ public class CheckVersion implements Runnable {
             Bukkit.getServer().getScheduler().runTaskAsynchronously(Functions.getMain(), () -> {
                 try {
                     Functions.getMain().sendConsole(1, "Downloading...");
-                    URL download = new URL("http://lt.limc.cc:38308/Functions/Releases/Download/" + name + ".jar");
+                    URL download = new URL("https://github.com/2b2ttanxiu/Functions/releases/download/" + v + "/Functions.jar");
                     InputStream in = null;
                     in = download.openStream();
                     Files.copy(in, jar.toPath(), new CopyOption[]{StandardCopyOption.REPLACE_EXISTING});
@@ -91,10 +90,13 @@ public class CheckVersion implements Runnable {
                 } catch (IOException var4) {
                     var4.printStackTrace();
                     Functions.getMain().sendConsole(1, "Download not success!");
+                    Functions.getMain().sendConsole(1, "Restart download in " + Functions.getMain().getConfig().getLong("Updated.CheckTime_minutes",10) + " minutes to download");
                 }
 
             });
-        }
-
+        } else {
+           String url = "https://github.com/2b2ttanxiu/Functions/releases/download/" + v "/Functons.jar";
+           Functions.getMain().sendConsole(1, "You servers not enable auto download,You need to download new Functions.");
+           Functions.getMain().sendConsole(1, "Github URL " + url);
     }
 }
